@@ -36,8 +36,9 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Ocas.Coltrane.CollegeTransmission.1.0.0, Version=1.4.0.15696, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ocas.Coltrane.CollegeTransmission.1.0.0.1.4.0\lib\net452\Ocas.Coltrane.CollegeTransmission.1.0.0.dll</HintPath>
+    <Reference Include="Ocas.Coltrane.CollegeTransmission.1.0.0, Version=1.5.0.16497, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ocas.Coltrane.CollegeTransmission.1.0.0.1.5.0\lib\net452\Ocas.Coltrane.CollegeTransmission.1.0.0.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
