@@ -8,6 +8,7 @@ Table of Contents
 * [Overview](#overview)
 * [Coltrane Standard](#coltrane-standard)
 * [Getting Started](#getting-started)
+* [Default Values](#default-values)
 * [Sample](#sample)
 * [XML](#xml)
 * [JSON (sorta)](#json-sorta-)
@@ -66,6 +67,45 @@ using Ocas.Coltrane;
 ...
 var xmlString = System.IO.File.ReadAllText("my.xml");
 var app = AdmissionsApplication.Deserialize(xmlString);
+```
+
+---
+
+Default Values
+--------------
+
+The Deserializer will ignore null values that aren't set. However if you request a
+property that is an enum, it has to be a value (enum's don't support null). So it
+will take the default enum value. Before retrieving values it's important to check the
+`ShouldSerialize...`
+
+#### Eg.
+
+```csharp
+...
+var obj = CollegeTransmissionType.DeserializeAndValidate(stream);
+
+var demographic = obj.Details.First().Applicant.Demographic;
+
+string firstGenerationValue = null;
+
+if(demographic.ShouldSerializeFirstGeneration())
+    firstGenerationValue = demographic.FirstGeneration;
+
+```
+
+Now this could become tedious, so we provide a helper to get the proper String value
+of the enum.
+
+#### GetStringOrDefault
+
+```csharp
+var obj = CollegeTransmissionType.DeserializeAndValidate(stream);
+
+var demographic = obj.Details.First().Applicant.Demographic;
+
+var firstGenerationValue = demographic.GetStringOrDefault(x => nameof(x.FirstGeneration));
+
 ```
 
 ---
